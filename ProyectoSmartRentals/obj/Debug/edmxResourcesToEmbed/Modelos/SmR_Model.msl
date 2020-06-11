@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartRentalsModelStoreContainer" CdmEntityContainer="SmartRentalsEntities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="SmartRentalsModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="id_Cliente" ColumnName="id_Cliente" />
+          <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+          <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+          <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+          <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+          <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Admin_Rentals">
+      <EntityTypeMapping TypeName="SmartRentalsModel.C_Admin_Rentals">
+        <MappingFragment StoreEntitySet="C_Admin_Rentals">
+          <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+          <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+          <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+          <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+          <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+          <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+          <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+          <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+          <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+          <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_EliminarAdminRental" FunctionName="SmartRentalsModel.Store.sp_EliminarAdminRental" />
+    <FunctionImportMapping FunctionImportName="sp_InsertarAdminRental" FunctionName="SmartRentalsModel.Store.sp_InsertarAdminRental" />
+    <FunctionImportMapping FunctionImportName="sp_ModificarAdminRental" FunctionName="SmartRentalsModel.Store.sp_ModificarAdminRental" />
+    <FunctionImportMapping FunctionImportName="sp_RetornaAdminRental" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRental">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaAdminRental_Result">
+          <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+          <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+          <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+          <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+          <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+          <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+          <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+          <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+          <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+          <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_RetornaAdminRentalID" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRentalID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaAdminRentalID_Result">
+          <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+          <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+          <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+          <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+          <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+          <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+          <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+          <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+          <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+          <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmartRentalsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="C_Admin_Rentals">
+          <Key>
+            <PropertyRef Name="adr_id_admin" />
+          </Key>
+          <Property Name="adr_id_admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adr_Cedula" Type="varchar" MaxLength="15" />
+          <Property Name="adr_Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="adr_SegundoNombre" Type="varchar" MaxLength="50" />
+          <Property Name="adr_PrimerApellido" Type="varchar" MaxLength="50" />
+          <Property Name="adr_SegundoApellido" Type="varchar" MaxLength="50" />
+          <Property Name="adr_FechaNacimiento" Type="date" />
+          <Property Name="adr_TelefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="adr_TelefonoCelular" Type="varchar" MaxLength="50" />
+          <Property Name="adr_Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_Cliente" />
+          </Key>
+          <Property Name="id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_TipoCliente" Type="int" Nullable="false" />
+          <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="segundoApellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_PaisProcedencia" Type="int" Nullable="false" />
+          <Property Name="telefono1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="sp_EliminarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_Cedula" Type="varchar" Mode="In" />
+          <Parameter Name="v_Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_SegundoNombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_PrimerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_SegundoApellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="v_TelefonoCasa" Type="varchar" Mode="In" />
+          <Parameter Name="v_TelefonoCelular" Type="varchar" Mode="In" />
+          <Parameter Name="v_Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificarAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_id_admin" Type="int" Mode="In" />
+          <Parameter Name="v_cedula" Type="varchar" Mode="In" />
+          <Parameter Name="v_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_segundonombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_primerapellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_segundoapellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_fechanacimiento" Type="date" Mode="In" />
+          <Parameter Name="v_telefonocasa" Type="varchar" Mode="In" />
+          <Parameter Name="v_telefonocelular" Type="varchar" Mode="In" />
+          <Parameter Name="v_email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaAdminRental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="v_cedula" Type="varchar" Mode="In" />
+          <Parameter Name="v_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_segundonombre" Type="varchar" Mode="In" />
+          <Parameter Name="v_apellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_segundoapellido" Type="varchar" Mode="In" />
+          <Parameter Name="v_email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaAdminRentalID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_admin" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="SmartRentalsModelStoreContainer">
+          <EntitySet Name="C_Admin_Rentals" EntityType="Self.C_Admin_Rentals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartRentalsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_Cliente" />
+          </Key>
+          <Property Name="id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_TipoCliente" Type="Int32" Nullable="false" />
+          <Property Name="primerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="segundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_PaisProcedencia" Type="Int32" Nullable="false" />
+          <Property Name="telefono1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="C_Admin_Rentals">
+          <Key>
+            <PropertyRef Name="adr_id_admin" />
+          </Key>
+          <Property Name="adr_id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adr_Cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="adr_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_SegundoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="adr_TelefonoCasa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_TelefonoCelular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adr_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="SmartRentalsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="C_Admin_Rentals" EntityType="Self.C_Admin_Rentals" />
+          <FunctionImport Name="sp_EliminarAdminRental">
+          <Parameter Name="v_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertarAdminRental">
+            <Parameter Name="v_Cedula" Mode="In" Type="String" />
+            <Parameter Name="v_Nombre" Mode="In" Type="String" />
+            <Parameter Name="v_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="v_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="v_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="v_FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="v_TelefonoCasa" Mode="In" Type="String" />
+            <Parameter Name="v_TelefonoCelular" Mode="In" Type="String" />
+            <Parameter Name="v_Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificarAdminRental">
+            <Parameter Name="v_id_admin" Mode="In" Type="Int32" />
+            <Parameter Name="v_cedula" Mode="In" Type="String" />
+            <Parameter Name="v_nombre" Mode="In" Type="String" />
+            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
+            <Parameter Name="v_primerapellido" Mode="In" Type="String" />
+            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
+            <Parameter Name="v_fechanacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="v_telefonocasa" Mode="In" Type="String" />
+            <Parameter Name="v_telefonocelular" Mode="In" Type="String" />
+            <Parameter Name="v_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRental" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRental_Result)">
+            <Parameter Name="v_cedula" Mode="In" Type="String" />
+            <Parameter Name="v_nombre" Mode="In" Type="String" />
+            <Parameter Name="v_segundonombre" Mode="In" Type="String" />
+            <Parameter Name="v_apellido" Mode="In" Type="String" />
+            <Parameter Name="v_segundoapellido" Mode="In" Type="String" />
+            <Parameter Name="v_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaAdminRentalID" ReturnType="Collection(SmartRentalsModel.sp_RetornaAdminRentalID_Result)">
+          <Parameter Name="id_admin" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_RetornaAdminRental_Result">
+          <Property Type="Int32" Name="adr_id_admin" Nullable="false" />
+          <Property Type="String" Name="adr_Cedula" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="adr_Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_SegundoNombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_PrimerApellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_SegundoApellido" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="adr_FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="adr_TelefonoCasa" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_TelefonoCelular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_Email" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaAdminRentalID_Result">
+          <Property Type="Int32" Name="adr_id_admin" Nullable="false" />
+          <Property Type="String" Name="adr_Cedula" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="adr_Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_SegundoNombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_PrimerApellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_SegundoApellido" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="adr_FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="adr_TelefonoCasa" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_TelefonoCelular" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="adr_Email" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartRentalsModelStoreContainer" CdmEntityContainer="SmartRentalsEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="SmartRentalsModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="id_Cliente" ColumnName="id_Cliente" />
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Admin_Rentals">
+            <EntityTypeMapping TypeName="SmartRentalsModel.C_Admin_Rentals">
+              <MappingFragment StoreEntitySet="C_Admin_Rentals">
+                <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+                <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+                <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+                <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+                <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+                <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+                <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+                <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+                <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+                <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_EliminarAdminRental" FunctionName="SmartRentalsModel.Store.sp_EliminarAdminRental" />
+          <FunctionImportMapping FunctionImportName="sp_InsertarAdminRental" FunctionName="SmartRentalsModel.Store.sp_InsertarAdminRental" />
+          <FunctionImportMapping FunctionImportName="sp_ModificarAdminRental" FunctionName="SmartRentalsModel.Store.sp_ModificarAdminRental" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaAdminRental" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRental">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaAdminRental_Result">
+                <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+                <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+                <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+                <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+                <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+                <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+                <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+                <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+                <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+                <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaAdminRentalID" FunctionName="SmartRentalsModel.Store.sp_RetornaAdminRentalID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRentalsModel.sp_RetornaAdminRentalID_Result">
+                <ScalarProperty Name="adr_id_admin" ColumnName="adr_id_admin" />
+                <ScalarProperty Name="adr_Cedula" ColumnName="adr_Cedula" />
+                <ScalarProperty Name="adr_Nombre" ColumnName="adr_Nombre" />
+                <ScalarProperty Name="adr_SegundoNombre" ColumnName="adr_SegundoNombre" />
+                <ScalarProperty Name="adr_PrimerApellido" ColumnName="adr_PrimerApellido" />
+                <ScalarProperty Name="adr_SegundoApellido" ColumnName="adr_SegundoApellido" />
+                <ScalarProperty Name="adr_FechaNacimiento" ColumnName="adr_FechaNacimiento" />
+                <ScalarProperty Name="adr_TelefonoCasa" ColumnName="adr_TelefonoCasa" />
+                <ScalarProperty Name="adr_TelefonoCelular" ColumnName="adr_TelefonoCelular" />
+                <ScalarProperty Name="adr_Email" ColumnName="adr_Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
