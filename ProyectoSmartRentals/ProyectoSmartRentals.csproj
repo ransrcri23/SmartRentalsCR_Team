@@ -474,6 +474,7 @@
     <Folder Include="Imagenes\" />
     <Folder Include="Models\" />
     <Folder Include="Reportes\" />
+    <Folder Include="TESTING\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
